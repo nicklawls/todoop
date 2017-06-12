@@ -1,0 +1,34 @@
+name: todoop
+version: 0.1.0
+
+ghc-options: -Wall
+
+default-extensions:
+  - DeriveGeneric
+  - LambdaCase
+  - NamedFieldPuns
+  - OverloadedStrings
+  - PatternSynonyms
+  - ViewPatterns
+
+dependencies:
+  - aeson
+  - base
+  - bytestring
+  - http-types
+  - lens
+  - text
+  - time
+
+library:
+  source-dirs: src
+
+executables:
+  todoop-server:
+    source-dirs: app
+    main: Main.hs
+    ghc-options: -threaded -with-rtsopts=-N
+    dependencies:
+      - todoop
+      - wai
+      - warp
